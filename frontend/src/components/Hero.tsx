@@ -1,6 +1,7 @@
 import SearchBar from "./SearchBar";
 
-const HERO_IMAGE = "/villa.png";
+/** Must respect Vite `base` on GitHub Pages (e.g. /real-estate-website/). */
+const HERO_IMAGE = `${import.meta.env.BASE_URL}villa.png`;
 
 export default function Hero() {
   return (
