@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    @apply font-sans antialiased text-slate-800 bg-white;
+  }
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  ::selection {
+    background-color: rgba(225, 48, 48, 0.22);
+    color: #15293f;
+  }
+}
+
+@layer utilities {
+  .container-px {
+    @apply px-4 sm:px-6 lg:px-10;
+  }
+
+  .btn-red {
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-md bg-gradient-to-b from-brand-red to-brand-red-hover px-7 py-3.5 text-base font-semibold uppercase tracking-wide text-white shadow-btn-red transition-all duration-300 hover:from-brand-red-hover hover:to-brand-red-deep hover:shadow-btn-red-hover hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red/40 focus-visible:ring-offset-2;
+  }
+
+  .btn-red::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 35%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.28),
+      transparent
+    );
+    transform: translateX(-120%) skewX(-12deg);
+    pointer-events: none;
+  }
+
+  .btn-red:hover::after {
+    animation: shimmer 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .btn-red-compact {
+    @apply relative inline-flex items-center justify-center gap-1.5 overflow-hidden rounded-md bg-gradient-to-b from-brand-red to-brand-red-hover px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white shadow-btn-red transition-all duration-300 hover:from-brand-red-hover hover:to-brand-red-deep hover:shadow-btn-red-hover hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red/40 focus-visible:ring-offset-2 sm:text-base;
+  }
+
+  .btn-red-compact::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 35%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.28),
+      transparent
+    );
+    transform: translateX(-120%) skewX(-12deg);
+    pointer-events: none;
+  }
+
+  .btn-red-compact:hover::after {
+    animation: shimmer 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border border-white/25 bg-white/5 px-4 py-2 text-sm font-semibold tracking-wide text-white backdrop-blur-sm transition-all duration-200 hover:border-white/40 hover:bg-white/15 hover:-translate-y-0.5;
+  }
+
+  .nav-link {
+    @apply relative text-white/85 hover:text-white text-base font-medium tracking-wide transition-colors;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 2px;
+    background: #e8c547;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.25s ease;
+    border-radius: 2px;
+  }
+
+  .nav-link:hover::after {
+    transform: scaleX(0.7);
+  }
+
+  .section-title {
+    @apply text-center text-brand-navy font-bold uppercase tracking-wide text-xl leading-snug sm:text-2xl md:text-3xl lg:text-[2.25rem];
+  }
+
+  .card-hover {
+    @apply transition-all duration-500 will-change-transform hover:-translate-y-1 hover:shadow-card-hover;
+  }
+
+  .img-zoom {
+    @apply transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06];
+  }
+
+  .noise-bg {
+    background-image: radial-gradient(
+        rgba(255, 255, 255, 0.06) 1px,
+        transparent 1px
+      ),
+      radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-position: 0 0, 8px 8px;
+    background-size: 16px 16px, 16px 16px;
+  }
+
+  .grid-bg {
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.04) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .glow-gold {
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25),
+      0 6px 24px rgba(232, 197, 71, 0.35);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-120%) skewX(-12deg);
+  }
+  100% {
+    transform: translateX(220%) skewX(-12deg);
+  }
+}
